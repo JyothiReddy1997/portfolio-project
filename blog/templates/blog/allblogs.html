@@ -1,15 +1,13 @@
 
 <!doctype html>
 <html lang="en">
-
   <head>
-    {% load staticfiles %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.6">
-    <title>Jyothi Reddy</title>
+    <title>Jyothi's Blog</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/album/">
 
@@ -36,6 +34,7 @@
   </head>
   <body>
     <header>
+      {% load staticfiles %}
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="{%url 'home' %}">JYOTHI REDDY BHAVANAM</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,7 +45,7 @@
             <a class="nav-item nav-link" href="https://github.com/JyothiReddy1997">Git Hub</a>
             <a class="nav-item nav-link" href="https://www.linkedin.com/in/jyothi-reddy-bhavanam/">LinkedIn</a>
             <a class="nav-item nav-link" href="{% static 'resume.pdf' %}">Resume</a>
-            <a class="nav-item nav-link" href="{% url 'allblogs' %}">Blog</a>
+            <a class="nav-item nav-link active" href="{% url 'allblogs' %}">Blog</a>
           </div>
         </div>
       </nav>
@@ -54,46 +53,20 @@
 </header>
 
 <main role="main">
-
-  <section class="jumbotron text-center">
-    <div class="container">
-      <h1>Hi! I am Jyothi Reddy</h1>
-      <p class="lead text-muted">Done my Masters in Computer Science. Actively looking for full-time jobs.</p>
-      <p>
-        <a href = "mailto:bhavanam.jyothi@gmail.com" class="btn btn-primary my-2">Email Me</a>
-      </p>
-      <img src="{% static '1_pic.jpg' %}" height="290"/>
-    </div>
-  </section>
-
-  <div class="album py-5 bg-light">
-    <div class="container">
-
-      <div class="row">
-        {%for job in jobs.all%}
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-          <!--  <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
-                        xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
-                        focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title>
-                        <rect width="100%" height="100%" fill="#55595c"/>
-                        <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                      </svg>-->
-            <img class="card-img-top" src="{{ job.image.url}}"/>
-            <div class="card-body">
-              <p class="card-text">{{job.summary}}</p>
-              <div class="d-flex justify-content-between align-items-center">
-
-                <small class="text-muted">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        {%endfor%}
-      </div>
-    </div>
+  <div class="container">
+  <h1 class="text-center pt-5"> Welcome to Jyothi's Blog </h1>
+  <br><br><br>
+  <h2> Latest posts</h2>
+  <hr>
+  {%for blog in blogs.all%}
+  <a href="{% url 'detail' blog.id %}"> <h3>{{blog.title}} </h3></a> <br />
+  {{blog.pub_date}}<br>         <!-- pub_date_pretty -->
+  <img class="img-fluid" src="{{blog.image.url }}" height=300 width=240/>
+  <br>
+  <p>{{ blog.summary }} </p>
+   <br>
+  {%endfor%}
   </div>
-
 </main>
 
 <footer class="text-muted">
