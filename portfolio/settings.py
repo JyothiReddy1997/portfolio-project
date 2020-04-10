@@ -134,3 +134,8 @@ STATIC_URL = '/static/'         #eggs
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = "/media/"                       #can be anything "/eggs/"
+
+try:
+    from local_settings import *
+except ImportError:
+    pass
