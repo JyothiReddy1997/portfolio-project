@@ -1,3 +1,3 @@
 # portfolio-project
 
-![Screenshot-portfolio](https://user-images.githubusercontent.com/31843963/91790399-8de68180-ebc5-11ea-9bc3-e93b58c22fc6.png)
+<img width="958" alt="s1" src="https://user-images.githubusercontent.com/31843963/91790705-490f1a80-ebc6-11ea-88c1-9f22606e15b2.png">
